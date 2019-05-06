@@ -1,20 +1,20 @@
 ##This script was produced by Anthony Haloulos and James Sensenbrenner
-##In order for script to work ensure all directories are correct for the machine
+##In order for script to work ensure all file path routes are correct for the machine
 import arcpy
 from arcpy import env 
-env.workspace = "C://arcgis//FinalProject"
+env.workspace = "C://arcgis//FinalProject" #Change to fit machine
 env.OverwriteOutput= True
 
-mxd = "C://arcgis//FinalProject//NYCMap.mxd"
+mxd = "C://arcgis//FinalProject//NYCMap.mxd" #Change to fit machine
 fc = "geo_export_0891c82f-5864-4525-9206-763f9621c38b.shp"
 
 #Ask for inputs regarding pathogen spread
 ##bufferspread = arcpy.GetParameterAsText(0)
 ##treetype = arcpy.GetParameterAsText(1)
 
-#Hardcoded parameters for testing purposes
+#Hardcoded parameters for testing purposes and can be changed (Norway Maple would reuire making a second change)
 bufferspread = "25 METERS"
-treetype = 'Norway maple'
+treetype = 'Norway maple' 
 count = 2
 
 #Deletes existing files to enable an overwrite
@@ -91,7 +91,7 @@ for lyr in lyrlist:
     else:
         lyr.visible = False
 mapdoc.save()
-pdfPath = "C://arcgis//FinalProject//TreeMap.pdf"
+pdfPath = "C://arcgis//FinalProject//TreeMap.pdf" #Change to fit machine
 #Deletes existing file and then creates PDF of finished map
 if arcpy.Exists(pdfPath):
     arcpy.Delete_management(pdfPath)
